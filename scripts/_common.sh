@@ -32,7 +32,8 @@ setup_sources() {
     tomcat_guac_dir="$(tomcat_path_for_path "$path")"
 
     ynh_setup_source --full_replace --source_id="client" --dest_dir="$install_dir/downloads"
-    mv "$install_dir/downloads/guacamole.war" "$install_dir/$tomcat_version/webapps/$tomcat_guac_dir.war"
+    rm -r "$install_dir/$tomcat_version/webapps/$tomcat_guac_dir"
+    mv "$install_dir/downloads/guacamole.war" "$install_dir/$tomcat_version/webapps/$tomcat_guac_dir"
 
     mkdir -p "$install_dir/etc/guacamole/extensions"
 
